@@ -21,7 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
         Gate::define('manage-letters', function (User $user): bool {
             return $user->role === 'petugas';
         });

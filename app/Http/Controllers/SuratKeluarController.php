@@ -8,7 +8,6 @@ use App\Models\OutcomingLetter;
 class SuratKeluarController extends Controller
 {
     public function index() {
-        $suratKeluar = OutcomingLetter::all();
         $suratKeluar = OutcomingLetter::orderBy('id', 'desc')->get();
         return view('surat-keluar.index', compact('suratKeluar'));
     }

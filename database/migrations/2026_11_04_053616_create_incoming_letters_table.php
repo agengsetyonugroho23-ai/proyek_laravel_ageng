@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('incoming_letters', function (Blueprint $table) {
             $table->id();
+            $table->string('nomor_surat');
+            $table->date('tanggal');
+            $table->string('pengirim');
+            $table->string('perihal');
+            $table->text('keterangan')->nullable();
             $table->timestamps();
         });
     }
