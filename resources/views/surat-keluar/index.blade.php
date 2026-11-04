@@ -1,15 +1,3 @@
-<!--
-<!DOCTYPE html>
-<html lang="id">
-<head>
-@@ -31,4 +32,43 @@
-        </tbody>
-    </table>
-</body>
-</html>
-</html>
--->
-
 @extends('layouts.app')
 
 @section('title', 'Surat Keluar')
@@ -29,21 +17,25 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($suratKeluar as $surat)
+        @forelse ($suratKeluar as $surat)
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $surat['nomor_surat'] }}</td>
             <td>{{ $surat['tanggal'] }}</td>
             <td>{{ $surat['pengirim'] }}</td>
             <td>{{ $surat['perihal'] }}</td>
+            <td>{{ $surat->nomor_surat }}</td>
+            <td>{{ $surat->tanggal }}</td>
+            <td>{{ $surat->pengirim }}</td>
+            <td>{{ $surat->perihal }}</td>
             <td>
                 <a href="{{ route('surat-keluar.show', $surat['id']) }}">
                     Detail
                 </a>
             </td>
         </tr>
-        @endforeach
+        @empty
+            <tr><td colspan="6">Belum ada surat keluar.</td></tr>
+        @endforelse
     </tbody>
 </table>
-
-@endsection
